@@ -1,4 +1,4 @@
-# blueBird.web
+# blueBird_web
 
 Projeto de web para a matéria de **_Desenvolvimento Web_**.
 
