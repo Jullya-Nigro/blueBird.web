@@ -45,6 +45,7 @@ footer li {
 .copyright {
     padding: 2rem 0;
     box-shadow: var(--box-shadow);
+    background-color: var(--branco);
 }
 
 .texto-copy {

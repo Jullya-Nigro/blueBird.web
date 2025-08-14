@@ -23,14 +23,8 @@ async function Login(email, password){
     
     let result = await response.json()
     
-    if(response.ok) {
-        localStorage.setItem("token", result.access_token)
-        localStorage.setItem("token_type", result.token_type)
-        localStorage.setItem("expires_in", result.expires_in)
-        localStorage.setItem("user", JSON.stringify(result.user))
-    }
-
     return {
+        url: baseUrl + '/login',
         status: response.status,
         message: result
     }
@@ -57,6 +51,7 @@ async function Register(name, birthday, email, cpf_cnpj, password){
     let result = await response.json()
     
     return {
+        url: baseUrl + '/user',
         status: response.status,
         message: result
     }
@@ -71,25 +66,20 @@ async function Logout(){
         
         location.replace("index.html")
 
-        const response = await fetch('https://go-wash-api.onrender.com/logout', {
+        const response = await fetch(baseUrl + '/logout', {
             method: "POST",
             headers: {
                 'Authorization': 'Bearer ' + localStorage.getItem("token")
             }
         });
         
-        if(response.ok || true) {
-            let result = await response.json()
-            
-            return {
-                status: response.status,
-                message: result
-            }
+        if(!response.ok) {
         }
         
         return {
-            status: 401,
-            message: "Erro ao fazer logout"
+            url: baseUrl + '/logout',
+            status: response.status,
+            message: "logout realizado com sucesso"
         }
     }
     catch(error){
@@ -101,5 +91,3 @@ async function Logout(){
         }
     }
 }
-
-export { Login, Register, Logout };

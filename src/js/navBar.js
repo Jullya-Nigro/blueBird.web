@@ -1,6 +1,3 @@
-// filepath: c:\Users\hleit\Desktop\Faculdade\Web\blueBird.web\src\js\navBar.js
-import { Logout } from './User.js';
-
 function OpenMenu() {
     let subMenu = document.getElementById("sub-menu-wrap");
     subMenu.classList.toggle("open-menu");
@@ -24,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
                     <hr>
                     <a href="profile.html" class="sub-menu-link">
-                        <p>Configurações</p>
+                        <p>Endereços</p>
                         <span>></span>
                     </a>
                     <a href="index.html" class="sub-menu-link" id="logout-link">

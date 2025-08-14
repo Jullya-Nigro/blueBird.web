@@ -1,5 +1,3 @@
-import { Register, Login } from "./User.js";
-
 const form = document.getElementById('Form');
 
 const nameInput = document.getElementById("name-input")
@@ -21,36 +19,47 @@ allInputs.forEach(input => {
     })
 })
 
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    let response = {
-        'status': 200
-    };
-    let erros = [];
-    
-    if (nameInput) {
-        erros = coletarCadastroFormErros(emailInput.value, passwordInput.value, nameInput.value, birthdayInput.value, cpf_cnpjInput.value, termsInput.checked);
-        if (erros.length === 0){
-            response = await Register(nameInput.value, birthdayInput.value, emailInput.value, cpf_cnpjInput.value, passwordInput.value);
-            console.log(response.message)
-            erros = coletarApiErros(response);
+if(form){
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let response = {
+            'status': 200
+        };
+        let erros = [];
+        
+        if (nameInput) {
+            erros = coletarCadastroFormErros(emailInput.value, passwordInput.value, nameInput.value, birthdayInput.value, cpf_cnpjInput.value, termsInput.checked);
+            if (erros.length === 0){
+                response = await Register(nameInput.value, birthdayInput.value, emailInput.value, cpf_cnpjInput.value, passwordInput.value);
+                console.log(response.message)
+                erros = coletarApiErros(response);
+            }
+        } else {
+            erros = coletarLoginFormErros(emailInput.value, passwordInput.value);
+            if (erros.length === 0){
+                response = await Login(emailInput.value, passwordInput.value);
+                console.log(response.message)
+                erros = coletarLoginApiErros(response);
+            }
         }
-    } else {
-        erros = coletarLoginFormErros(emailInput.value, passwordInput.value);
-        if (erros.length === 0){
-            response = await Login(emailInput.value, passwordInput.value);
-            console.log(response.message)
-            erros = coletarLoginApiErros(response);
-        }
-    }
 
-    if (erros.length > 0) {
-        error_message.innerText = erros.join(' ');
-    }
-    else{
-        location.replace("index.html")
-    }
-});
+        if (erros.length > 0) {
+            error_message.innerText = erros.join(' ');
+        }
+        else{
+            location.replace("index.html")
+
+            if(response && response.status === 200){
+                const result = response.message;
+                
+                localStorage.setItem("token", result.access_token)
+                localStorage.setItem("token_type", result.token_type)
+                localStorage.setItem("expires_in", result.expires_in)
+                localStorage.setItem("user", JSON.stringify(result.user))
+            }
+        }
+    });
+}
 
 function coletarLoginFormErros(email, senha) {
     let erros = [];
@@ -136,4 +145,24 @@ function coletarCadastroFormErros(email, senha, nome, aniversario, cpf_cnpj, ter
     }
 
     return erros;
+}
+
+const enderecoforms = document.getElementById("form-endereco")
+const titulo = document.getElementById("titulo")
+const cep = document.getElementById("cep")
+const rua = document.getElementById("rua")
+const numero  = document.getElementById("numero")
+if (enderecoforms) {
+    enderecoforms.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const token = localStorage.getItem("token"); // Certifique-se de que esse token está no localStorage
+
+        await cadastrar(
+            titulo.value,
+            cep.value,
+            rua.value,
+            numero.value,
+        );
+    });
 }

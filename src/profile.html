@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>BlueBird Airlines</title>
+    <link rel="stylesheet" type="text/css" href="./css/padrao.css">
+    <link rel="stylesheet" type="text/css" href="./css/header.css">
+    <link rel="stylesheet" type="text/css" href="./css/profile.css">
+    <link rel="stylesheet" type="text/css" href="./css/footer.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <figure>
+                        <img src="./img/logo.png" alt="Logo BlueBird Airlines"></img>
+                        <a href="index.html">BLUEBIRD</a>
+                    </figure>
+                </li>
+                <li>
+                    <a href="about.html">Sobre-nos</a>
+                </li>
+                <li id="nav-login">
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="configuracao-usuario">
+        <div class="lado-azul">
+            <div class="wrapper">
+                <div class="titulo">
+                    <div id="profile-name"></div>
+                    <div class="adicionar-endereco">
+                        <h1>Adicionar Endereço</h1>
+                        <form id="form-endereco">
+                            <div class="form-group">
+                                <label for="titulo">Título</label>
+                                <input type="text" id="titulo" name="titulo" placeholder="Ex: Casa, Trabalho" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="rua">Rua</label>
+                                <input type="text" id="rua" name="rua" placeholder="Digite a rua" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="numero">Número</label>
+                                <input type="text" id="numero" name="numero" placeholder="Digite o número" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="complemento">Complemento</label>
+                                <input type="text" id="complemento" name="complemento"
+                                    placeholder="Digite o complemento">
+                            </div>
+                            <button type="submit" id="adicionar-endereco-link">Adicionar</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lado-branco">
+            <div class="wrapper">
+                <div id="lista-de-endereco">
+                </div>
+                <div class="modal-editar-endereco">
+                    <div class="editar-campos-endereco">
+                        <h1>Editar Endereço</h1>
+                    </div>
+                    <form id="form-editar-endereco">
+                        <label for="titulo-editar">Título</label>
+                        <input type="text" id="titulo-input" name="titulo-editar" placeholder="Ex: Casa, Trabalho"
+                            required>
+                        <label for="cep-editar">CEP</label>
+                        <input type="text" id="cep-input" name="cep-editar" placeholder="Digite o CEP" required>
+                        <label for="rua-editar">Rua</label>
+                        <input type="text" id="rua-input" name="rua-editar" placeholder="Digite a rua" required>
+                        <label for="numero-editar">Número</label>
+                        <input type="text" id="numero-input" name="numero-editar" placeholder="Digite o número"
+                            required>
+                        <label for="complemento-editar">Complemento</label>
+                        <input type="text" id="complemento-input" name="complemento-editar"
+                            placeholder="Digite o complemento">
+                    </form>
+                    <div class="botoes-editar">
+                        <button id="btn-editar-endereco">Editar</button>
+                        <button id="btn-cancelar-edicao">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div class="footer-caixa wrapper">
+            <div class="logo-footer">
+                <img src="./img/logo-footer.png" alt="Logo" title="Logo">
+                <p>Um te leva para Marte, e nós te levamos para qualquer lugar! <br> ;)</p>
+            </div>
+            <div class="menu-footer">
+                <p>Menu</p>
+                <ul>
+                    <li>Home</li>
+                    <li>Sobre nós</li>
+                    <li>Pacotes</li>
+                    <li>Nossos parceiros</li>
+                    <li>Feriados</li>
+                    <li>Temporadas</li>
+                    <li>Nos contate</li>
+                </ul>
+            </div>
+            <div class="pacotes-footer">
+                <p>Pacotes</p>
+                <ul>
+                    <li>Nacionais</li>
+                    <li>Populares</li>
+                    <li>Internacionais</li>
+                </ul>
+            </div>
+            <div class="contato">
+                <p>Contato</p>
+                <ul>
+                    <li>Canais de atendimento</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyright">
+        <div class="wrapper texto-copy">
+            <p>Copyright @2024</p>
+            <p>Turma ADS2A - Projeto BlueBird</p>
+        </div>
+    </div>
+    <script src="./js/navBar.js"></script>
+    <script src="./js/cadastrarEndereco.js"></script>
+    <script src="./js/listarEndereco.js"></script>
+    <script src="./js/editarEndereco.js"></script>
+    <script src="./js/deletarEndereco.js"></script>
+</body>
+
+</html>

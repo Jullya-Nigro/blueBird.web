@@ -1,0 +1,264 @@
+
+@import url(./padrao.css);
+
+.configuracao-usuario {
+    background-color: var(--background);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.lado-azul {
+    width: 30%;
+    height: 100%;
+    background-color: var(--terceira-cor);
+    color: var(--branco);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 5rem 2rem;
+    box-shadow: var(--box-shadow);
+}
+
+.lado-azul h1 {
+    margin-bottom: 2rem;
+}
+
+.lado-azul h3 {
+    font-weight: 400;
+}
+
+.lado-azul figure {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.lado-azul figure svg {
+    width: 100%;
+    height: 100%;
+}
+
+.lado-branco {
+    height: 100%;
+    padding: 5rem 0;
+    width: 70%;
+    overflow-y: auto;
+    max-height: 100vh;
+    /* position: relative; */
+}
+
+
+#lista-de-endereco,
+.endereco-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 2rem;
+}
+
+.configuracao-usuario h2 {
+    margin-bottom: 2rem;
+    color: #aaa;
+}
+
+.endereco-item {
+    margin-top: 1rem;
+    padding: 1rem 0;
+    width: 100%;
+    font-size: 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: var(--border-radius);
+    background: #fdfdfd;
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    transition: .3s ease-in-out;
+}
+
+.endereco-item p {
+    padding: 0 1rem;
+    font-size: 16px;
+}
+
+.icon-endereco {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--segunda-cor);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+
+.icon-endereco svg {
+    width: 45%;
+    height: 45%;
+    fill: #fff;
+}
+
+.icon-container-endereco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding-right: 2rem;
+}
+
+.adicionar-endereco input {
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+}
+
+.adicionar-endereco a {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--terceira-cor);
+    color: var(--branco);
+    width: 160px;
+    height: 55px;
+    border-radius: var(--border-radius);
+    font-size: 20px;
+    top: 0;
+    left: 87%;
+}
+
+.align-input-botao {
+    width: 100%;
+    height: 60px;
+    position: relative;
+    margin-top: 1rem;
+}
+
+.titulo a {
+    color: #aaa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-group {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-group label {
+    margin: 10px 0;
+}
+
+
+button#adicionar-endereco-link,
+button#btn-editar-endereco,
+#btn-cancelar-edicao {
+    width: 150px;
+    margin: 25px 0;
+    height: 40px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    color: var(--branco);
+    background: var(--segunda-cor);
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#tipo-endereco,
+#rua-endereco,
+#numero-endereco,
+#cep-endereco {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.endereco-item h3 {
+    color: var(--primeira-cor);
+    font-size: 15px;
+}
+
+.icon-endereco:hover {
+    transform: scale(1.080);
+}
+
+.modal-editar-endereco {
+    
+    width: 425px;
+    background: #fefefe;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    gap: 15px;
+    z-index: 15;
+    top: 15%;
+    left: 50%;
+}
+.modal-editar-endereco.ativado {
+    display: flex;
+    transition: .2s ease-in-out;
+}
+.editar-campos-endereco h1 {
+    color: var(--branco);
+}
+
+form#form-editar-endereco {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    text-align: left;
+    padding: 20px 1px;
+}
+
+.editar-campos-endereco {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: var(--terceira-cor);
+    border-radius: 24px 24px 0px 0px;
+    justify-content: center;
+}
+
+form#form-editar-endereco label {
+    font-size: 1rem;
+    text-transform: lowercase;
+}
+
+form#form-editar-endereco input {
+    height: 45px;
+    border-radius: 14px;
+    border: 1px solid #005f73;
+    padding: 0 15px;
+    /* width: 85%; */
+}
+
+form#form-editar-endereco input:focus {
+    outline: none;
+    border: 1px solid;
+}
+
+.endereco-item div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
